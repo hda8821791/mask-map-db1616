@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "start": "node server.js",
+    "start": "node dist/main.js",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -20,8 +20,8 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "postinstall": "npm run prestart:prod",
-    "prestart:prod": "npm install"
+    "prestart:prod": "npm install",
+    "postinstall": "tsc --sourceMap false"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
