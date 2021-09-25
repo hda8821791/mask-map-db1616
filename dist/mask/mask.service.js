@@ -34,7 +34,7 @@ let MaskService = class MaskService {
     }
     async find(city, area) {
         const params = area !== '無'
-            ? { 'properties.town': area }
+            ? { 'properties.county': city, 'properties.town': area }
             : { 'properties.county': city };
         return await this.maskModel.find(params).then((result) => {
             console.log(result);

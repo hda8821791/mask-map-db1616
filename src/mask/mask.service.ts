@@ -19,22 +19,10 @@ export class MaskService {
     return '新增成功';
   }
 
-  /* public async find() {
-    return await this.maskModel.find().then(
-      (result) => {
-        console.log(result);
-        return result;
-      },
-      () => {
-        return '查詢失敗';
-      },
-    );
-  } */
-
   public async find(city: string, area?: string) {
     const params =
       area !== '無'
-        ? { 'properties.town': area }
+        ? { 'properties.county': city, 'properties.town': area }
         : { 'properties.county': city };
     // console.log(area);
     return await this.maskModel.find(params).then(
